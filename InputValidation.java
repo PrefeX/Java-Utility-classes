@@ -89,6 +89,10 @@ public final class InputValidation {
                         && !string[0].endsWith(".") // Local-part can't end with '.'
                         && !string[1].startsWith(".") // The domain can't start with '.'
                         && !string[1].endsWith(".") // The top-domain can't end with '.'
+                        && !string[0].contains("..") // We can have a repeating '.' character
+                        && !string[1].contains("..") // We can have a repeating '.' character
+                        && !string[0].contains(" ") // We can have a space in the email-address
+                        && !string[1].contains(" ") // We can have a space in the email-address
                         ) {
                     valid = true;
                 }
